@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <link rel="icon" href="programadorgba.png" type="image/x-icon">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Juego de letras palabra escondida" />
+  <meta name="author" content="programadorgba" />
+  <meta name="keywords" content="html, css, javascript" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cutive&display=swap" rel="stylesheet">
+  <link rel="stylesheet" type="text/css" href="wordle.css" />
+  <title>Wordle es/cat</title>
+</head>
+
+<body>
+  <div id="game-container">
+    <div class="juego" style="visibility: hidden;">
+      <div id="header">
+        
+        <h1>Wordle es/cat</h1>
+      </div>
+      <div id="grid"></div>
+      <div id="keyboard"></div>
+    </div>
+    <div id="languageModal" class="modalIdioma">
+      <h1>WORDLE   ES/CAT</h1>
+      <div class="modal-content">
+        <div class="formulario">
+          <form id="loginForm">
+            <h5>Introduce tu nombre</h5>
+            <input type="text" id="username" placeholder="Nombre de usuario" autofocus required>
+          </form>
+        </div>
+        <div class="castella">
+          <h2 class="titul">Elige tu idioma /</h2>
+          <button type="submit" data-langueage="es" class="es">Castellano</button>
+        </div>
+        <div class="catalan">
+          <h2 class="titul">Tria el teu idioma</h2>
+          <button type="submit" data-langueage="cat" class="cat">Catalán</button>
+        </div>
+      </div>
+    </div>
+    <div id="gameModal" class="modal" style="visibility: hidden;">
+      <div class="titulo-modal">
+        <h2 class="titulo"></h2>
+        <span id="closeModal">X</span>
+      </div>
+      <div class="explicacion">
+        <p></p>
+      </div>
+      <h2 class="tituloEjemplo"></h2>
+      <div class="ejemplo">
+        <div id="g" class="uno"></div>
+        <div class="dos"></div>
+        <div class="tres"></div>
+        <div class="cuatro"></div>
+        <div class="cinco"></div>
+      </div>
+      <p id="texto" class="textoUno"></p>
+      <div class="ejemplo">
+        <div class="seis"></div>
+        <div class="siete"></div>
+        <div id="e" class="ocho"></div>
+        <div class="nueve"></div>
+        <div class="diez"></div>
+      </div>
+      <p id="texto" class="textoDos"></p>
+      <div class="ejemplo">
+        <div class="once"></div>
+        <div class="doce"></div>
+        <div class="trece"></div>
+        <div class="catorce"></div>
+        <div id="r" class="quince"></div>
+      </div>
+      <p id="texto" class="textoTres"></p>
+      <p id="texto" class="textoFinal"></p>
+    </div>
+    <div id="resultadoModal" style="visibility: hidden;">
+      <div class="modalContenido">
+        <span class="cerrarModal">&times;</span>
+        <h2 class="usuario"></h2>     
+        <p class="mensaje"></p>
+        <p>La palabra secreta es / La paraula secreta és:  <span class="secreto"></span></p>
+        <button class="boton-otra-palabra">Generar otra palabra</button>
+        <button class="boton-reiniciar-juego">Reiniciar juego</button>
+      </div>
+    </div>
+  </div>
+  <script src="palabrasES.js"></script>
+  <script src="palabrasCAT.js"></script>
+  <script src="wordle.js"></script>
+</body>
+
+</html>

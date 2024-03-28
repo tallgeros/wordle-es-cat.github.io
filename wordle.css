@@ -1,0 +1,326 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body,
+html {
+  background: antiquewhite;
+  font-family: "Cutive", serif;
+  font-weight: 400;
+  font-style: normal;
+  color: black;
+  text-transform: uppercase;
+}
+#game-container {
+  margin: auto;
+  max-width: 500px;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border: 5px solid #1111;
+  box-shadow: 4px -4px 32px 23px rgba(16, 18, 17, 0.13);
+}
+#header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-items: baseline;
+  height: 70px;
+  width: 350px;
+  font-size: 0.8em;
+}
+h1 {
+  text-align: center;
+}
+#info:hover {
+  background-color: #b59f3b;
+  color: #333;
+}
+#info {
+  cursor: pointer;
+  background: #989898;
+  padding: 5px;
+  font-weight: bold;
+  color: white;
+  border: 1px solid #888;
+  border-radius: 30%;
+  text-decoration: none;
+  height: 30px;
+}
+#grid {
+  display: grid;
+  justify-content: center;
+  align-items: center;
+  margin: 10px auto 20px auto;
+}
+.cell {
+  width: 60px;
+  height: 60px;
+  display: inline-block;
+  margin: 4px;
+  font-size: 40px;
+  font-weight: 400;
+  perspective: 1000px;
+  position: relative;
+}
+.cell .front,
+.cell .back {
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  border: 1px double #444;
+  backface-visibility: hidden;
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  text-align: center;
+}
+.cell.solved .surface {
+  transform: rotateX(180deg);
+}
+.cell .surface {
+  transition-duration: 800ms;
+  transform-style: preserve-3d;
+  position: relative;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+}
+.cell .front {
+  z-index: 2;
+}
+.cell .back {
+  z-index: 1;
+  transform: rotateX(180deg);
+}
+#keyboard {
+  height: 185px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  touch-action: manipulation;
+  margin-bottom: 5px;
+}
+.button {
+  text-transform: uppercase;
+  padding: 9px;
+  margin: 3px;
+  border-radius: 5px;
+  height: 58px;
+  border: none;
+  font-size: 19px;
+  color: white;
+  cursor: pointer;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  animation: press;
+}
+@keyframes press {
+  from {
+    opacity: 0.5;
+    transform: scale(0.95);
+  }
+  50% {
+    opacity: 0.85;
+    transform: scale(1.1);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* The Modal (background) */
+.modalIdioma {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  z-index: 2;
+  top: 0;
+  width: 400px;
+  height: 100%;
+  overflow: auto;
+  background-color: antiquewhite;
+  
+}
+h1 {
+  margin-top: 20px;
+  word-spacing: 25px;
+}
+.modal-content {
+  padding: 20px;
+
+  width: 100%;
+  height: 100%;
+}
+.titulo {
+  text-align: center;
+  padding: 20px;
+  margin-top: 15px;
+}
+#loginForm {
+  margin: 30px auto 30px auto;
+  text-align: center;
+  border: 0.5px solid #1111;
+  font-size: 1rem;
+}
+
+#loginForm input[type="text"] {
+  margin: 10px 0 20px 0;
+  padding: 8px;
+  
+}
+#username { 
+  font-size: 1rem;
+}
+.castella,
+.catalan {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 30px auto 50px auto;
+  padding: 5px;
+}
+.es,
+.cat {
+  border: 1px solid #333;
+  border-radius: 15px;
+  padding: 8px;
+  background-color: #538d4e;
+  cursor: pointer;
+  margin: 30px 0 20px 0;
+}
+.es:hover,
+.cat:hover {
+  background-color: #b59f3b;
+}
+
+#gameModal {
+  visibility: hidden;
+  width: 480px;
+  height: 100%;
+  background: rgba(250, 250, 250, 0.5);
+  display: flex;
+  flex-direction: column;
+  border: 1px solid black;
+  border-radius: 10px;
+  z-index: 2;
+  position: fixed;
+  left: -10;
+  top: 0;
+  margin: auto;
+}
+.titulo-modal {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  padding: 5px;
+  height: 70px;
+  margin-bottom: 1.5rem;
+}
+#closeModal {
+  margin-top: 20px;
+  border: 1px solid #333;
+  border-radius: 50%;
+  padding: 10px;
+  background-color: darkgrey;
+  cursor: pointer;
+}
+#closeModal:hover {
+  background-color: white;
+}
+.explicacion {
+  width: 70%;
+  text-align: justify;
+  margin: 0 auto 20px auto;
+  font-size: 1rem;
+}
+.tituloEjemplo {
+  text-align: center;
+  margin-top: 10px;
+  font-size: 1.5rem;
+}
+.ejemplo {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  max-width: 80%;
+  text-align: center;
+  margin: 15px;
+}
+#texto {
+  width: 70%;
+  text-align: justify;
+  margin: 0 auto 0 auto;
+  font-size: 0.9rem;
+}
+.ejemplo * {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 6px;
+  padding: 3px;
+  border: 1px solid #333;
+}
+#g {
+  background-color: #538d4e;
+}
+#e {
+  background-color: #b59f3b;
+}
+#r {
+  background-color: #6a5f5e;
+}
+#resultadoModal {
+  max-width: 450px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  z-index: 4;
+  top: 60%;
+  left: 0;
+  background-color: aliceblue;
+}
+.modalContenido {
+  width: 80%;
+  text-align: center;
+  margin: auto;
+
+}
+.usuario {
+  text-align: center;
+}
+.mensaje {
+  width: 80%;
+  font-weight: 400;
+  text-align: center;
+  margin-bottom: 15px;
+}
+.secreto { 
+  font-size: 1rem;
+  font-weight: 400;
+  font-style: oblique;
+  color: red;
+  padding: 5px;
+}
+.boton-otra-palabra, .boton-reiniciar-juego {
+  background-color: #538d4e;
+  padding: 10px;
+  margin: 15px 10px 10px 10px;
+  border-radius: 15px;
+  box-shadow: 5px 5px 28px 5px rgba(7,46,4,1);
+}
+.boton-otra-palabra:hover , .boton-reiniciar-juego:hover {
+  background-color: #b59f3b;
+}
+
